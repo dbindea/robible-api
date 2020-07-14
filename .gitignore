@@ -1,0 +1,26 @@
+/dist
+/node_modules
+package-lock.json
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# IDE - Webstorm
+.idea/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# AWS
+.ebextensions/
+.elasticbeanstalk/
+.platform/
+
+# Env
+*.env
