@@ -1,14 +1,11 @@
 require('@babel/polyfill');
 import express, { json, urlencoded } from 'express';
-import { ApolloServer } from 'apollo-server-express';
 import cors from 'cors';
 import appConfig from './config/app.config';
 
 const appRoutes = require('./api/app.routes')();
 
-import { resolvers } from './graphql/resolvers/resolvers';
-import { typeDefs } from './graphql/typedefs/typedefs';
-//import middelwares from './middlewares/middlewares';
+import middelwares from './middlewares/middlewares';
 
 // EXPRESS SERVER
 const app = express();
@@ -53,21 +50,12 @@ export class App {
     // ENDPOINT ACCESS LOG
     app.use(morgan('dev'));
 
-    // APOLLOIN CONFIG
-    const server = new ApolloServer({
-      typeDefs,
-      resolvers,
-    });
-
-    // APOLLO INSTANCE
-    server.applyMiddleware({ app });
-
     // CORS
     app.use(cors());
 
     // CUSTOM MIDDLEWARES
-    // app.use('/api/', middelwares.initAppData);
-    // app.use('/api/', middelwares.getUserData);
+    app.use('/api/', middelwares.initAppData);
+    app.use('/api/', middelwares.getBible);
   }
 
   /**
@@ -94,6 +82,5 @@ export class App {
     await app.listen(app.get('port'));
     console.log(`Running on port: ${app.get('port')}`);
     console.log(`Running api-rest running on http://${app.get('host')}:${app.get('port')}/api/v${appConfig().app.version}`);
-    console.log(`Running graphql console running on http://${app.get('host')}:${app.get('port')}/graphql`);
   }
 }
