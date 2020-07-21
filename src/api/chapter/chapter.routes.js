@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { getChapter } from './chapter.controller';
 
 const router = Router({ mergeParams: true });
 

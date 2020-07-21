@@ -1,5 +1,4 @@
 export default class BookService {
-
   async getBook(bible, book) {
     let result = {};
     try {

@@ -1,6 +1,5 @@
-export default class BookService {
-
-  async getChapter(bible, book, chapter) {
+export default class VerseService {
+  async getVerse(bible, book, chapter) {
     let result = {};
     try {
       const { lang, version } = { ...bible };

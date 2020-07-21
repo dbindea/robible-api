@@ -1,14 +1,13 @@
-import BookService from '../../shared/services/book.service';
+import ChapterService from '../../shared/services/chapter.service';
 
-const bookService = new BookService();
+const chapterService = new ChapterService();
 
-export function getBook(req, res) {
-  
+export function getChapter(req, res) {
   const book = req.params && req.params.book ? req.params.book : undefined;
   const bible = req.appData['bible'];
 
-  return bookService
-    .getBook(bible, book)
+  return chapterService
+    .getChapter(bible, book)
     .then((book) => res.json(book))
     .catch((err) => {
       console.error('ERROR', err);
