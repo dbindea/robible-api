@@ -4,15 +4,18 @@ module.exports = {
   },
 
   getBible: function (req, res, next) {
-    // TODO: get data from headers
-
-    const lang = 'ro';
-    const version = 'VDCC';
-
-    req.appData['bible'] = {
-      lang,
-      version,
-    };
+    const lv = req.headers['lv'];
+    if (lv) {
+      req.appData['bible'] = {
+        lang: lv.slice(0, 2).toLowerCase(),
+        version: lv.slice(2).toUpperCase(),
+      };
+    } else {
+      req.appData['bible'] = {
+        lang: '',
+        version: '',
+      };
+    }
     next();
   },
 };
