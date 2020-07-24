@@ -1,3 +1,3 @@
 require('dotenv').config();
 
-export const ENV = process.env.ENV || 'loc';
+export const ENV = process.env.ENV || 'develop';
