@@ -4,11 +4,12 @@ const chapterService = new ChapterService();
 
 export function getChapter(req, res) {
   const book = req.params && req.params.book ? req.params.book : undefined;
-  const bible = req.appData['bible'];
+  const chapter = req.params && req.params.chapter ? req.params.chapter : undefined;
+  const { lang, version } = req.appData['bible'];
 
   return chapterService
-    .getChapter(bible, book)
-    .then((book) => res.json(book))
+    .getChapter(lang, version, book, chapter)
+    .then((response) => res.json(response))
     .catch((err) => {
       console.error('ERROR', err);
 

@@ -1,16 +1,16 @@
 export const MONGO = {
-  development: {
+  loc: {
     host: 'localhost',
     port: 27017,
     database: 'robible',
   },
-  test: {
-    host: '127.0.0.1',
+  develop: {
+    host: '10.10.10.109',
     port: 27017,
     database: 'robible',
   },
-  production: {
-    host: '127.0.0.1',
+  master: {
+    host: '10.10.10.109',
     port: 27017,
     database: 'robible',
   },

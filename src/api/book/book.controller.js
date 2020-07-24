@@ -8,7 +8,7 @@ export function getBook(req, res) {
 
   return bookService
     .getBook(lang, version, book)
-    .then((book) => res.json(book))
+    .then((response) => res.json(response))
 
     .catch((err) => {
       console.error('ERROR', err);

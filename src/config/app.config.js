@@ -1,22 +1,12 @@
 const ROOT = require('./resources/root').ROOT;
 const MONGO = require('./resources/mongo').MONGO;
 
-//const mysql = require('./../resources/mysql');
-
 import { ENV } from './app.env';
 
-/**
- * 'dev' - for develop environment
- * 'pre' - for develop environment
- * 'pro' - for develop environment
- *
- * This variable can be taken from the environment variables
- */
-
 const ENVIRONMENT = {
-  isDevEnv: () => _env.toLowerCase() === 'development',
-  isPreEnv: () => _env.toLowerCase() === 'test',
-  isProEnv: () => _env.toLowerCase() === 'production',
+  isLocEnv: () => _env.toLowerCase() === 'loc',
+  isDevEnv: () => _env.toLowerCase() === 'develop',
+  isProEnv: () => _env.toLowerCase() === 'master',
 };
 
 const appConfig = () => {

@@ -1,26 +1,26 @@
-export const book = [
+export const book_mock = [
   {
     name: 'Geneza',
-    order: 1,
-    chapters: 50,
+    book_order: 1,
+    num_chapters: 50,
     bible_version: 'EDCR',
   },
   {
     name: 'Exodul',
-    order: 2,
-    chapters: 40,
+    book_order: 2,
+    num_chapters: 40,
     bible_version: 'EDCR',
   },
   {
     name: 'Geneza',
-    order: 1,
-    chapters: 50,
+    book_order: 1,
+    num_chapters: 50,
     bible_version: 'BTF2015',
   },
   {
     name: 'Exodul',
-    order: 2,
-    chapters: 40,
+    book_order: 2,
+    num_chapters: 40,
     bible_version: 'BTF2015',
   },
 ];

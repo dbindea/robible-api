@@ -1,66 +1,23 @@
+import { verse_mock } from '../../mock/verse.mock';
+import ChapterService from './chapter.service';
+
+const chapterService = new ChapterService();
+
 export default class VerseService {
-  async getVerse(bible, book, chapter) {
-    let result = {};
-    try {
-      const { lang, version } = { ...bible };
+  async getVerse(lang, version, book, chapter, verse) {
+    let _verse = [...verse_mock];
+    let myChapter = await chapterService.getChapter(lang, version, book, chapter);
 
-      if (book) {
-        result = {
-          bible: {
-            lang,
-            version,
-            name: 'Dumitru Cornilescu',
-          },
-          book: {
-            name: 'Leviticul',
-            order: book,
-            chapters: 27,
-          },
-          chapters: [
-            {
-              name: 1,
-              verses: 17,
-            },
-            {
-              name: 2,
-              verses: 16,
-            },
-            {
-              name: 3,
-              verses: 17,
-            },
-          ],
-        };
-      } else {
-        result = {
-          bible: {
-            lang,
-            version,
-            name: 'Dumitru Cornilescu',
-          },
-          books: [
-            {
-              name: 'Geneza',
-              order: 1,
-              chapters: 50,
-            },
-            {
-              name: 'Exod',
-              order: 2,
-              chapters: 40,
-            },
-            {
-              name: 'Leviticul',
-              order: 3,
-              chapters: 27,
-            },
-          ],
-        };
-      }
-
-      return result;
-    } catch (error) {
-      throw error;
+    if (verse) {
+      myChapter[0].chapter[0].verse = _verse
+        .filter((e) => e.bible_version == version && e.book_order == book && e.chapter_order == chapter && e.number == verse)
+        .map((v) => ({ number: v.number, text: v.text }));
+      return myChapter;
+    } else {
+      myChapter[0].chapter[0].verse = _verse
+        .filter((e) => e.bible_version == version && e.book_order == book && e.chapter_order == chapter)
+        .map((v) => ({ number: v.number, text: v.text }));
+      return myChapter;
     }
   }
 }
