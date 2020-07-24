@@ -1,3 +1,3 @@
 require('dotenv').config();
 
-export const ENV = process.env.ENV || 'develop';
+export const ENV = process.env.ENV || 'master';
