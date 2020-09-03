@@ -14,7 +14,7 @@ const app = express();
 const morgan = require('morgan');
 
 // DATABASE CONNECTIONS
-const mongoConnection = require('./config/db/mongo.connection');
+//const mongoConnection = require('./config/db/mongo.connection');
 
 export class App {
   constructor() {
@@ -25,7 +25,7 @@ export class App {
     this.middelwares();
 
     // INSTANCE MONGODB CONNECTION
-    this.mongoConnection();
+    //this.mongoConnection();
 
     // INSTANCE API-REST ROUTES
     this.routes();
