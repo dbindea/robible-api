@@ -6,8 +6,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && babel src -d dist --source-maps",
-    "start": "npm i && nodemon src/server.js --exec babel-node",
+    "start:dev": "npm i && nodemon src/server.js --exec babel-node",
     "start:prod": "npm run build && node dist/server.js",
+    "start": "node dist/server.js",
     "format": "prettier --write \"src/**/*.js\""
   },
   "keywords": [],
